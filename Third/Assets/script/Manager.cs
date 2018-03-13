@@ -30,14 +30,32 @@ public class Manager : MonoBehaviour
 
     private bool _gPlay = false;
     public bool GPlay { get { return _gPlay; } set { _gPlay = value; } }
-
+    
     public Text GoldCounter;
     private int GoldCount = 0;
 
-    public void AddGold(int num)
+    public Text KillCounter;
+    private int KillCount = 0;
+
+    public Text MyLifeCounter;
+    private int MyLifeCount = 3;
+
+    public void AddGold(int gNum)
     {
-        GoldCount += num;
+        GoldCount += gNum;
         GoldCounter.text = "Gold : " + GoldCount;
+    }
+
+    public void AddKill(int kNum)
+    {
+        KillCount += kNum;
+        KillCounter.text = "Kill : " + KillCount;
+    }
+
+    public void MinusLife(int lNum)
+    {
+        MyLifeCount -= lNum;
+        MyLifeCounter.text = "Life : " + MyLifeCount;
     }
 
     private void Awake()

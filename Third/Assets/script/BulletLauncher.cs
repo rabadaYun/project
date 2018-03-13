@@ -57,5 +57,6 @@ public class BulletLauncher : MonoBehaviour {
             BulletClone.SetActive(true);
             yield return new WaitForSeconds(1 / fps);
         }
+        
     }
 }

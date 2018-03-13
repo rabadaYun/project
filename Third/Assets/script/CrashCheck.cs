@@ -8,21 +8,20 @@ public class CrashCheck : MonoBehaviour {
     public int PowerEnemyHealth = 5;
     public int BulletHealth = 1;
     public int PlayerHealth = 3;
-    public int GoldCount = 0;
+    //public int GoldCount = 0;
+    public int EnemyMaxGold = 3;
+    public int PowerEnemyMaxGold = 5;
     public GameObject tire;
     
-
-    void MakeGold()
+    IEnumerator MakeGold(int MaxGold)
     {
-        float dir1 = Random.Range(-1f, 1f);
-        float dir2 = Random.Range(0, 2f);
-        Vector3 RanVector = new Vector3(dir1, dir2, 0);
+        int GoldCount = Random.Range(1, MaxGold);
 
-        int GoldCount = Random.Range(1, 4);
-        for (int i = 0; i < GoldCount; ++i) 
+        for (int i = 0; i <= GoldCount; ++i)
         {
-            Instantiate(tire, transform.position, Quaternion.LookRotation(RanVector));
+            Instantiate(tire, transform.position, Quaternion.identity);
         }
+        yield return null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -36,7 +35,9 @@ public class CrashCheck : MonoBehaviour {
                         --EnemyHealth;
                         if (EnemyHealth <= 0)
                         {
+                            StartCoroutine(MakeGold(EnemyMaxGold));
                             Destroy(gameObject);
+                            Manager.Instance.AddKill(1);
                         }
                     }
                 }
@@ -48,7 +49,9 @@ public class CrashCheck : MonoBehaviour {
                         --PowerEnemyHealth;
                         if (PowerEnemyHealth <= 0)
                         {
+                            StartCoroutine(MakeGold(PowerEnemyMaxGold));
                             Destroy(gameObject);
+                            Manager.Instance.AddKill(1);
                         }
                     }
                 }
@@ -86,6 +89,7 @@ public class CrashCheck : MonoBehaviour {
                     if (other.gameObject.tag == "Enemy")
                     {
                         --PlayerHealth;
+                        Manager.Instance.MinusLife(1);
                         if (PlayerHealth <= 0)
                         {
                             Manager.Instance.GPlay = false;
@@ -94,6 +98,7 @@ public class CrashCheck : MonoBehaviour {
                     else if (other.gameObject.tag == "PowerEnemy")
                     {
                         --PlayerHealth;
+                        Manager.Instance.MinusLife(1);
                         if (PlayerHealth <= 0)
                         {
                             Manager.Instance.GPlay = false;
@@ -102,6 +107,7 @@ public class CrashCheck : MonoBehaviour {
                     else if (other.gameObject.tag == "MoveRoad1")
                     {
                         --PlayerHealth;
+                        Manager.Instance.MinusLife(1);
                         if (PlayerHealth <= 0)
                         {
                             Manager.Instance.GPlay = false;

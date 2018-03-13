@@ -5,9 +5,9 @@ using UnityEngine;
 public class MoveRoad : MonoBehaviour, IGameObject
 {
     [SerializeField]
-    private float _startPositionY = 10.0f;
+    private float _startPositionY = 20.0f;
     [SerializeField]
-    private float _endPositionY = -10.0f;
+    private float _endPositionY = -20.0f;
 
     public void GameUpdate () {
         MoveRoadObject();

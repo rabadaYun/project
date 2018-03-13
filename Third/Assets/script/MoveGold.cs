@@ -12,9 +12,9 @@ public class MoveGold : MonoBehaviour {
 
     public void MoveOnGold()
     {
-        float dir1 = Random.Range(-1f, 1f);
-        float dir2 = Random.Range(0, 2f);
-        Vector3 RanVector = new Vector3(dir1, dir2, 0);
-        transform.position += transform.rotation * RanVector * Time.deltaTime;
+        float dirX = Random.Range(-15.0f, 15.0f);
+        float dirY = Random.Range(-2.0f, 2.0f);
+        Vector3 RanVector = new Vector3(dirX, dirY, 0);
+        GetComponent<Rigidbody2D>().AddForce(RanVector);
     }
 }
