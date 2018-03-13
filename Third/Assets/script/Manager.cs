@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -29,6 +30,15 @@ public class Manager : MonoBehaviour
 
     private bool _gPlay = false;
     public bool GPlay { get { return _gPlay; } set { _gPlay = value; } }
+
+    public Text GoldCounter;
+    private int GoldCount = 0;
+
+    public void AddGold(int num)
+    {
+        GoldCount += num;
+        GoldCounter.text = "Gold : " + GoldCount;
+    }
 
     private void Awake()
     {

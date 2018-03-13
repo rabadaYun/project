@@ -12,6 +12,6 @@ public class MoveBullet : MonoBehaviour {
     
     public void MoveBySpeed()
     {
-        transform.position += transform.rotation * Vector3.up * Time.deltaTime * Manager.Instance.BulletSpeed;
+        transform.position += transform.rotation * Vector3.left * Time.deltaTime * Manager.Instance.BulletSpeed;
     }
 }

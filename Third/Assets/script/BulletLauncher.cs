@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletLauncher : MonoBehaviour {
-    public GameObject bullet_tire;
+    public GameObject Bullet_Arrow;
     public float fps = 10.0f;
     public int BulletPoolSize = 20;
     List<GameObject> BulletPool = new List<GameObject>();
@@ -20,7 +20,7 @@ public class BulletLauncher : MonoBehaviour {
 
     GameObject GenerateBulletToPool()
     {
-        var BulletClone = Instantiate(bullet_tire);
+        var BulletClone = Instantiate(Bullet_Arrow);
         BulletClone.SetActive(false);
         BulletPool.Add(BulletClone);
         return BulletClone;
