@@ -22,6 +22,10 @@ public class ObjectRemover : MonoBehaviour {
         {
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.tag == "Item")
+        {
+            Destroy(other.gameObject);
+        }
     }
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -41,5 +45,10 @@ public class ObjectRemover : MonoBehaviour {
         {
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.tag == "Item")
+        {
+            Destroy(other.gameObject);
+        }
     }
+
 }

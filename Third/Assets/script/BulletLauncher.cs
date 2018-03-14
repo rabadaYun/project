@@ -25,7 +25,7 @@ public class BulletLauncher : MonoBehaviour {
         BulletPool.Add(BulletClone);
         return BulletClone;
     }
-
+    
     void OnDestroy()
     {
         foreach (var BulletClone in BulletPool)
@@ -56,7 +56,10 @@ public class BulletLauncher : MonoBehaviour {
             BulletClone.transform.position = transform.position;
             BulletClone.SetActive(true);
             yield return new WaitForSeconds(1 / fps);
+            if (!Manager.Instance.GPlay)
+            {
+                break;
+            }
         }
-        
     }
 }

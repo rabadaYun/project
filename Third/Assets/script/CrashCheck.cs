@@ -8,22 +8,10 @@ public class CrashCheck : MonoBehaviour {
     public int PowerEnemyHealth = 5;
     public int BulletHealth = 1;
     public int PlayerHealth = 3;
-    //public int GoldCount = 0;
-    public int EnemyMaxGold = 3;
-    public int PowerEnemyMaxGold = 5;
-    public GameObject tire;
-    
-    IEnumerator MakeGold(int MaxGold)
-    {
-        int GoldCount = Random.Range(1, MaxGold);
 
-        for (int i = 0; i <= GoldCount; ++i)
-        {
-            Instantiate(tire, transform.position, Quaternion.identity);
-        }
-        yield return null;
-    }
-
+    [SerializeField]
+    private ItemMake itemMake = null;
+        
     void OnTriggerEnter2D(Collider2D other)
     {
         switch(gameObject.tag)
@@ -35,7 +23,15 @@ public class CrashCheck : MonoBehaviour {
                         --EnemyHealth;
                         if (EnemyHealth <= 0)
                         {
-                            StartCoroutine(MakeGold(EnemyMaxGold));
+                            int _randItemPer = itemMake.RandItemPer();
+                            if (_randItemPer <= 10)
+                            {
+                                itemMake.MakeItem1(gameObject.transform.position);
+                            }
+                            else
+                            {
+                                itemMake.MakeGold(itemMake.EnemyMaxGold, gameObject.transform.position);
+                            }
                             Destroy(gameObject);
                             Manager.Instance.AddKill(1);
                         }
@@ -49,7 +45,15 @@ public class CrashCheck : MonoBehaviour {
                         --PowerEnemyHealth;
                         if (PowerEnemyHealth <= 0)
                         {
-                            StartCoroutine(MakeGold(PowerEnemyMaxGold));
+                            int _randItemPer = itemMake.RandItemPer();
+                            if (_randItemPer <= 10)
+                            {
+                                itemMake.MakeItem1(gameObject.transform.position);
+                            }
+                            else
+                            {
+                                itemMake.MakeGold(itemMake.PowerEnemyMaxGold, gameObject.transform.position);
+                            }
                             Destroy(gameObject);
                             Manager.Instance.AddKill(1);
                         }
@@ -73,14 +77,6 @@ public class CrashCheck : MonoBehaviour {
                         {
                             gameObject.SetActive(false);
                         }
-                    }
-                }
-                break;
-            case "Gold":
-                {
-                    if(other.gameObject.tag == "Player")
-                    {
-                        gameObject.SetActive(false);
                     }
                 }
                 break;
@@ -116,7 +112,12 @@ public class CrashCheck : MonoBehaviour {
                     else if (other.gameObject.tag == "Gold")
                     {
                         Manager.Instance.AddGold(1);
-                        other.gameObject.SetActive(false);
+                        Destroy(other.gameObject);
+                    }
+                    else if (other.gameObject.tag == "Item")
+                    {
+                        Debug.Log("Item!");
+                        Destroy(other.gameObject);
                     }
                 }
                 break;

@@ -5,12 +5,15 @@ using UnityEngine;
 public class MoveEnemy : MonoBehaviour {
     public void Update()
     {
-        MoveOnEnemy();
+        if (Manager.Instance.GPlay)
+        {
+            MoveOnEnemy();
+        }
     }
 
     public void MoveOnEnemy()
     {
-        transform.position += transform.rotation * Vector3.down * Time.deltaTime * Manager.Instance.EnemySpeed;
+        this.gameObject.transform.position += transform.rotation * Vector3.down * Time.deltaTime * Manager.Instance.EnemySpeed;
     }
 
 }

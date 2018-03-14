@@ -10,26 +10,30 @@ public class Manager : MonoBehaviour
 
     [SerializeField]
     private MyCar _myCar = null;
-    //[SerializeField]
-    //private MoveEnemy _moveEnemy= null;
+   // [SerializeField]
+  //  private ItemMake _itemMake= null;
     [SerializeField]
     private MoveRoad _moveRoad = null;
     
-
     [SerializeField]
     private float _mapSpeed = 0.05f;
-    public float MapSpeed { get { return _mapSpeed; } }
+    public float MapSpeed { set { _mapSpeed = value; } get { return _mapSpeed; } }
 
     [SerializeField]
     private float _bulletSpeed = 1.0f;
-    public float BulletSpeed { get { return _bulletSpeed; } }
+    public float BulletSpeed { set { _bulletSpeed = value; } get { return _bulletSpeed; } }
 
     [SerializeField]
     private float _enemySpeed = 1.0f;
-    public float EnemySpeed { get { return _enemySpeed; } }
+    public float EnemySpeed { set { _enemySpeed = value; } get { return _enemySpeed; } }
+    
+    private int _enemyHealth = 3;
+    public int EnemyHealth { set { _enemyHealth = value; } get { return _enemyHealth; } }
+    
+
 
     private bool _gPlay = false;
-    public bool GPlay { get { return _gPlay; } set { _gPlay = value; } }
+    public bool GPlay { set { _gPlay = value; } get { return _gPlay; } }
     
     public Text GoldCounter;
     private int GoldCount = 0;
@@ -73,7 +77,7 @@ public class Manager : MonoBehaviour
         if (_gPlay)
         {
             _myCar.GameUpdate();
-            //_moveEnemy.GameUpdate();
+       //     _itemMake.GameUpdate();
             _moveRoad.GameUpdate();
         }
     }

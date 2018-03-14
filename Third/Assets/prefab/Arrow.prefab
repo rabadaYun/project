@@ -89,10 +89,7 @@ MonoBehaviour:
   PowerEnemyHealth: 5
   BulletHealth: 1
   PlayerHealth: 3
-  GoldCount: 0
-  EnemyMaxGold: 3
-  PowerEnemyMaxGold: 5
-  tire: {fileID: 1198291934546004, guid: 004b4c57919d0764a971b895cc07a4ac, type: 2}
+  itemMake: {fileID: 114700234714122738, guid: 4b4009b8c3b330547bcb92ecc78ad96e, type: 2}
 --- !u!114 &114682572038454154
 MonoBehaviour:
   m_ObjectHideFlags: 1

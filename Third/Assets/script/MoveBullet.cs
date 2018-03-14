@@ -7,7 +7,10 @@ public class MoveBullet : MonoBehaviour {
 
     public void Update()
     {
-        MoveBySpeed();
+        if (Manager.Instance.GPlay)
+        {
+            MoveBySpeed();
+        }
     }
     
     public void MoveBySpeed()
