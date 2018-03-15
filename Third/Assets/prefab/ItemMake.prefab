@@ -52,6 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tire: {fileID: 1198291934546004, guid: 004b4c57919d0764a971b895cc07a4ac, type: 2}
-  item1: {fileID: 1097561143732544, guid: eb15a01ba35be974b9031fe0b54d4087, type: 2}
+  item_BulletPower: {fileID: 1097561143732544, guid: eb15a01ba35be974b9031fe0b54d4087,
+    type: 2}
+  item_Magnet: {fileID: 1002846584160936, guid: b88bc6492ae4b4440959e299b100bbdd,
+    type: 2}
+  item_Boost: {fileID: 1599677304419212, guid: bea1cb02415d4fa42a14dadf70aa0eed, type: 2}
   EnemyMaxGold: 3
   PowerEnemyMaxGold: 5
+  UseItemMagnet: 1
+  UseItemBoost: 0

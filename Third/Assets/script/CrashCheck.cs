@@ -20,13 +20,13 @@ public class CrashCheck : MonoBehaviour {
                 {
                     if (other.gameObject.tag == "Bullet")
                     {
-                        --EnemyHealth;
+                        EnemyHealth -= Manager.Instance.BulletPower;
                         if (EnemyHealth <= 0)
                         {
                             int _randItemPer = itemMake.RandItemPer();
                             if (_randItemPer <= 10)
                             {
-                                itemMake.MakeItem1(gameObject.transform.position);
+                                itemMake.MakeItem_BulletPower(gameObject.transform.position);
                             }
                             else
                             {
@@ -36,19 +36,41 @@ public class CrashCheck : MonoBehaviour {
                             Manager.Instance.AddKill(1);
                         }
                     }
+                    else if (other.gameObject.tag == "Player")
+                    {
+                        int _randItemPer = itemMake.RandItemPer();
+                        if (_randItemPer <= 10)
+                        {
+                            itemMake.MakeItem_BulletPower(gameObject.transform.position);
+                        }
+                        else
+                        {
+                            itemMake.MakeGold(itemMake.EnemyMaxGold, gameObject.transform.position);
+                        }
+                        Destroy(gameObject);
+                        Manager.Instance.AddKill(1);
+                    }
                 }
                 break;
             case "PowerEnemy":
                 {
                     if (other.gameObject.tag == "Bullet")
                     {
-                        --PowerEnemyHealth;
+                        PowerEnemyHealth -= Manager.Instance.BulletPower;
                         if (PowerEnemyHealth <= 0)
                         {
                             int _randItemPer = itemMake.RandItemPer();
                             if (_randItemPer <= 10)
                             {
-                                itemMake.MakeItem1(gameObject.transform.position);
+                                itemMake.MakeItem_BulletPower(gameObject.transform.position);
+                            }
+                            else if (_randItemPer > 10 && _randItemPer <= 30)
+                            {
+                                itemMake.MakeItem_Boost(gameObject.transform.position);
+                            }
+                            else if (_randItemPer > 30 && _randItemPer <= 50)
+                            {
+                                itemMake.MakeItem_Magnet(gameObject.transform.position);
                             }
                             else
                             {
@@ -57,6 +79,29 @@ public class CrashCheck : MonoBehaviour {
                             Destroy(gameObject);
                             Manager.Instance.AddKill(1);
                         }
+                    }
+                    else if (other.gameObject.tag == "Player")
+                    {
+                        int _randItemPer = itemMake.RandItemPer();
+                        if (_randItemPer <= 10)
+                        {
+                            itemMake.MakeItem_BulletPower(gameObject.transform.position);
+                        }
+                        else if (_randItemPer > 10 && _randItemPer <= 30)
+                        {
+                            itemMake.MakeItem_Boost(gameObject.transform.position);
+                        }
+                        else if (_randItemPer > 30 && _randItemPer <= 50)
+                        {
+                            itemMake.MakeItem_Magnet(gameObject.transform.position);
+                        }
+                        else
+                        {
+                            itemMake.MakeGold(itemMake.PowerEnemyMaxGold, gameObject.transform.position);
+                        }
+                        Destroy(gameObject);
+                        Manager.Instance.AddKill(1);
+
                     }
                 }
                 break;
@@ -84,29 +129,38 @@ public class CrashCheck : MonoBehaviour {
                 {
                     if (other.gameObject.tag == "Enemy")
                     {
-                        --PlayerHealth;
-                        Manager.Instance.MinusLife(1);
-                        if (PlayerHealth <= 0)
+                        if (!Manager.Instance.UseItemBoost)
                         {
-                            Manager.Instance.GPlay = false;
+                            --PlayerHealth;
+                            Manager.Instance.MinusLife(1);
+                            if (PlayerHealth <= 0)
+                            {
+                                Manager.Instance.GPlay = false;
+                            }
                         }
                     }
                     else if (other.gameObject.tag == "PowerEnemy")
                     {
-                        --PlayerHealth;
-                        Manager.Instance.MinusLife(1);
-                        if (PlayerHealth <= 0)
+                        if (!Manager.Instance.UseItemBoost)
                         {
-                            Manager.Instance.GPlay = false;
+                            --PlayerHealth;
+                            Manager.Instance.MinusLife(1);
+                            if (PlayerHealth <= 0)
+                            {
+                                Manager.Instance.GPlay = false;
+                            }
                         }
                     }
                     else if (other.gameObject.tag == "MoveRoad1")
                     {
-                        --PlayerHealth;
-                        Manager.Instance.MinusLife(1);
-                        if (PlayerHealth <= 0)
+                        if (!Manager.Instance.UseItemBoost)
                         {
-                            Manager.Instance.GPlay = false;
+                            --PlayerHealth;
+                            Manager.Instance.MinusLife(1);
+                            if (PlayerHealth <= 0)
+                            {
+                                Manager.Instance.GPlay = false;
+                            }
                         }
                     }
                     else if (other.gameObject.tag == "Gold")
@@ -116,8 +170,18 @@ public class CrashCheck : MonoBehaviour {
                     }
                     else if (other.gameObject.tag == "Item")
                     {
-                        Debug.Log("Item!");
                         Destroy(other.gameObject);
+                        itemMake.UseItem_BulletPower();
+                    }
+                    else if (other.gameObject.tag == "Item_Magnet")
+                    {
+                        Destroy(other.gameObject);
+                        itemMake.UseItem_Magnet();
+                    }
+                    else if (other.gameObject.tag == "Item_Boost")
+                    {
+                        Destroy(other.gameObject);
+                        itemMake.UseItem_Boost();
                     }
                 }
                 break;

@@ -10,6 +10,8 @@ TagManager:
   - Bullet
   - Gold
   - Item
+  - Item_Magnet
+  - Item_Boost
   layers:
   - Default
   - TransparentFX
