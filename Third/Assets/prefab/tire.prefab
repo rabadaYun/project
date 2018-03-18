@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyCar: {fileID: 1996676400724400, guid: 522e2bbd44b54c24996927f6e50a74a5, type: 2}
+  GoingGold: {x: 0, y: 0, z: 0}
 --- !u!212 &212118059131654264
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,7 +124,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c0623c6a812ee204aaa19f2f20bf7245, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

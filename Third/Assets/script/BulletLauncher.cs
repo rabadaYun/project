@@ -7,8 +7,7 @@ public class BulletLauncher : MonoBehaviour {
     public float fps = 10.0f;
     public int BulletPoolSize = 20;
     List<GameObject> BulletPool = new List<GameObject>();
-
-    // Use this for initialization
+    
     void Start()
     {
         for (int i = 0; i < BulletPoolSize; ++i)

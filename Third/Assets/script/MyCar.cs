@@ -10,11 +10,12 @@ public class MyCar : MonoBehaviour, IGameObject {
     public void GameUpdate() {
         if (!Manager.Instance.UseItemBoost)
         {
-            if (Manager.Instance.CarRotationY != -4.0f)
+            if (Manager.Instance.CarRotationY > -4.0f)
             {
                 Manager.Instance.CarRotationY -= 0.04f;
+            
             }
-            else if (Manager.Instance.CarRotationY <= -4.0f)
+            else if (Manager.Instance.CarRotationY < -4.0f)
             {
                 Manager.Instance.CarRotationY = -4.0f;
             }
@@ -30,10 +31,9 @@ public class MyCar : MonoBehaviour, IGameObject {
             {
                 Manager.Instance.CarRotationY = -4.0f;
             }
-            {
                 Manager.Instance.CarRotationY += 0.04f;
-            }
-            MoveCarBoost();
+                MoveCarBoost();
+            
         }
     }
 
