@@ -10,10 +10,10 @@ public class Manager : MonoBehaviour
 
     [SerializeField]
     private MyCar _myCar = null;
-   // [SerializeField]
-  //  private ItemMake _itemMake= null;
     [SerializeField]
     private MoveRoad _moveRoad = null;
+    [SerializeField]
+    private GameEnd _gameEnd = null;
     
     [SerializeField]
     private float _mapSpeed = 0.05f;
@@ -64,6 +64,10 @@ public class Manager : MonoBehaviour
     public Text _distance;
     private float Distance = 0.0f;
 
+    public Text _gameOver;
+    private float TotalPoint = 0f;
+    public Text _totalPoint;
+
     public void AddGold(int gNum)
     {
         GoldCount += gNum;
@@ -89,8 +93,19 @@ public class Manager : MonoBehaviour
         _distance.text = "Distance : " + tempString + " Km";
     }
 
+    public void GameOver()
+    {
+        _gameOver.GetComponent<Text>().enabled = true;
+        _totalPoint.GetComponent<Text>().enabled = true;
+        TotalPoint = (GoldCount * 10) + (KillCount * 20) + (Distance * 10);
+        string tempString = TotalPoint.ToString("N2");
+        _totalPoint.text = "Point : " + TotalPoint;
+    }
+
     private void Awake()
     {
+        _gameOver.GetComponent<Text>().enabled = false;
+        _totalPoint.GetComponent<Text>().enabled = false;
         _instance = this;
     }
 
@@ -107,6 +122,10 @@ public class Manager : MonoBehaviour
        //     _itemMake.GameUpdate();
             _moveRoad.GameUpdate();
             AddDistance();
+        }
+        else if (_gPlay == false)
+        {
+            _gameEnd.GameEnding();
         }
     }
     

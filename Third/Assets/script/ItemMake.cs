@@ -67,10 +67,18 @@ public class ItemMake : MonoBehaviour
 
     public void UseItem_Boost()
     {
-        Manager.Instance.UseItemBoost = true;
-        Manager.Instance.MapSpeed += 0.1f;
-        Manager.Instance.EnemySpeed += 1.0f;
-        Invoke("RevokeItemStat_Boost", Manager.Instance.ItemUseTime);
+        if (Manager.Instance.UseItemBoost == true)
+        {
+            var PlusTime = Manager.Instance.ItemUseTime * 2;
+            Invoke("RevokeItemStat_Boost", PlusTime);
+        }
+        else
+        {
+            Manager.Instance.UseItemBoost = true;
+            Manager.Instance.MapSpeed += 0.1f;
+            Manager.Instance.EnemySpeed += 1.0f;
+            Invoke("RevokeItemStat_Boost", Manager.Instance.ItemUseTime);
+        }
     }
 
     public void RevokeItemStat_Boost()

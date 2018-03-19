@@ -288,6 +288,7 @@
     <Compile Include="Assets\script\BulletLauncher.cs" />
     <Compile Include="Assets\script\CrashCheck.cs" />
     <Compile Include="Assets\script\EnemyCar.cs" />
+    <Compile Include="Assets\script\GameEnd.cs" />
     <Compile Include="Assets\script\IGameObject.cs" />
     <Compile Include="Assets\script\ItemMake.cs" />
     <Compile Include="Assets\script\Manager.cs" />
