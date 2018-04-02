@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StageUp : MonoBehaviour
 {
-    private float DelayTime = 3.0f;
     public void AddStage ()
     {
         Manager.Instance.EnemyNHealth += 1;

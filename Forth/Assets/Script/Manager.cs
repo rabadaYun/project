@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour
     public static Manager Instance { get { return _instance; } }
 
     //게임 시작 판정
-    private bool _gPlay = true;
+    private bool _gPlay = false;
     public bool GPlay { set { _gPlay = value; } get { return _gPlay; } }
     //캐릭터 Y 위치
     private float _greenLocationY = -3.0f;

@@ -287,10 +287,12 @@
   <ItemGroup>
     <Compile Include="Assets\Script\BulletLauncher.cs" />
     <Compile Include="Assets\Script\BulletMove.cs" />
+    <Compile Include="Assets\Script\ButtonClick.cs" />
     <Compile Include="Assets\Script\CrashCheck.cs" />
     <Compile Include="Assets\Script\EnemyLauncher.cs" />
     <Compile Include="Assets\Script\EnemyMove.cs" />
     <Compile Include="Assets\Script\GoldMove.cs" />
+    <Compile Include="Assets\Script\GoUpgrade.cs" />
     <Compile Include="Assets\Script\Green.cs" />
     <Compile Include="Assets\Script\InGameUI.cs" />
     <Compile Include="Assets\Script\ItemLauncher.cs" />
