@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class CrashCheck : MonoBehaviour {
 
-    public int enemyEHealth = 5;
-    public int enemyNHealth = 3;
-    public int bulletHealth = 1;
-    public int myHealth = 3;
+    public int enemyEHealth;
+    public int enemyNHealth;
+    public int bulletHealth;
+    public int myHealth;
 
     [SerializeField]
     private ItemLauncher itemLauncher = null;
     [SerializeField]
     private InGameUI inGameUI = null;
+
+    private void Start()
+    {
+        enemyNHealth = Manager.Instance.EnemyNHealth;
+        enemyEHealth = Manager.Instance.EnemyEHealth;
+        bulletHealth = Manager.Instance.BulletHealth;
+        myHealth = Manager.Instance.MyLifeCount;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +30,7 @@ public class CrashCheck : MonoBehaviour {
                 {
                     if (collision.gameObject.tag == "Bullet")
                     {
+                        Debug.Log(Manager.Instance.EnemyNHealth);
                         enemyNHealth -= Manager.Instance.BulletPower;
                         if (enemyNHealth <= 0)
                         {

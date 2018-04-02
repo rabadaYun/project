@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
 
     //게임 시작 판정
     private bool _gPlay = true;
-    public bool GPlay { set { _gPlay = value; } get { return _gPlay; } }    
+    public bool GPlay { set { _gPlay = value; } get { return _gPlay; } }
     //캐릭터 Y 위치
     private float _greenLocationY = -3.0f;
     public float GreenLocationY { set { _greenLocationY = value; } get { return _greenLocationY; } }
@@ -28,7 +28,7 @@ public class Manager : MonoBehaviour
     //순환 맵 이동 속도
     private float _mapSpeed = 0.05f;
     public float MapSpeed { set { _mapSpeed = value; } get { return _mapSpeed; } }
-   //총알 시간당 발사량
+    //총알 시간당 발사량
     private float _fps = 5.0f;
     public float Fps { set { _fps = value; } get { return _fps; } }
     //총알 이동 속도
@@ -37,12 +37,21 @@ public class Manager : MonoBehaviour
     //총알 한발당 파워
     private int _bulletPower = 1;
     public int BulletPower { set { _bulletPower = value; } get { return _bulletPower; } }
+    //총알 체력
+    private int _bulletHealth = 1;
+    public int BulletHealth { set { _bulletHealth = value;  } get { return _bulletHealth; } }
     //적 이동 속도
     private float _enemySpeed = 1.0f;
     public float EnemySpeed { set { _enemySpeed = value; } get { return _enemySpeed; } }
     //적 생성 시간
     private float _interval = 4.0f;
     public float Interval { set { _interval = value; } get { return _interval; } }
+    //일반 적 체력
+    private int _enemyNHealth = 3;
+    public int EnemyNHealth { set { _enemyNHealth = value;  } get { return _enemyNHealth; } }
+    //엘리트 적 체력
+    private int _enemyEHealth = 5;
+    public int EnemyEHealth { set { _enemyEHealth = value; } get { return _enemyEHealth; } }
     //골드 최대 생성량
     private int _maxGoldMake = 3;
     public int MaxGoldMake { set { _maxGoldMake = value; } get { return _maxGoldMake; } }
@@ -69,6 +78,21 @@ public class Manager : MonoBehaviour
     //이동 거리
     private float _distance = 0.0f;
     public float Distance { set { _distance = value; } get { return _distance; } }
+    //스테이지 카운트
+    private int _stageCount = 0;
+    public int StageCount { set { _stageCount = value; } get { return _stageCount; } }
+
+    //스테이지 체크
+    private bool _stageCheck = false;
+    public bool StageCheck { set { _stageCheck = value; } get { return _stageCheck; } }
+
+    public void UIReset()
+    {
+        _goldCount = 0;
+        _killCount = 0;
+        _myLifeCount = 3;
+        _distance = 0;
+    }
 
     private void Awake()
     {
@@ -77,11 +101,7 @@ public class Manager : MonoBehaviour
     
     void Start () {
         _gPlay = true;
-
-        _goldCount = 0;
-        _killCount = 0;
-        _myLifeCount = 3;
-        _distance = 0;
+        UIReset();
     }
 	
 	void Update ()

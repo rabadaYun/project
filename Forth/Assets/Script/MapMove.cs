@@ -21,6 +21,9 @@ public class MapMove : MonoBehaviour
 
     public void Update()
     {
-        MoveRoadObject();
+        if (Manager.Instance.GPlay)
+        {
+            MoveRoadObject();
+        }
     }
 }

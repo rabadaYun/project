@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class InGameUI : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class InGameUI : MonoBehaviour
     public Text myLifeCount;
     public Text distance;
 
-    void Start () {
-    }
-	
+    public int DistanceCheck;
+        	
 	void Update ()
     {
-        AddDistance();
+        if (Manager.Instance.GPlay)
+        {
+            AddDistance();
+        }
         goldCount.text = "Gold : " + Manager.Instance.GoldCount;
         killCount.text = "Kill : " + Manager.Instance.KillCount;
         myLifeCount.text = "Life : " + Manager.Instance.MyLifeCount;

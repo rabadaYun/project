@@ -216,7 +216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Distance : 0.0 Km'
+  m_Text: 'Distance : 0.00 Km'
 --- !u!114 &114723521617974026
 MonoBehaviour:
   m_ObjectHideFlags: 1
