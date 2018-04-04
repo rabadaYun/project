@@ -38,10 +38,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d09f277287fa44d83dcade63796d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCount: {fileID: 0}
-  killCount: {fileID: 0}
-  myLifeCount: {fileID: 0}
-  distance: {fileID: 0}
+  goldCount: {fileID: 114556610788471902, guid: 2ab4099e8ae94fa4ebe1f39c4b625ffa,
+    type: 2}
+  killCount: {fileID: 114707813464702048, guid: 2ab4099e8ae94fa4ebe1f39c4b625ffa,
+    type: 2}
+  myLifeCount: {fileID: 114405808176905168, guid: 2ab4099e8ae94fa4ebe1f39c4b625ffa,
+    type: 2}
+  distance: {fileID: 114525095708258724, guid: 2ab4099e8ae94fa4ebe1f39c4b625ffa, type: 2}
   DistanceCheck: 0
 --- !u!224 &224480185951852170
 RectTransform:

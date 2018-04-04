@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212953559041544104}
   - component: {fileID: 58358995283880194}
   - component: {fileID: 50430823968800462}
-  - component: {fileID: 114469216455219412}
+  - component: {fileID: 114750258568084762}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Gold
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.11
---- !u!114 &114469216455219412
+--- !u!114 &114750258568084762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Green: {fileID: 1618784475369886, guid: 0b5b8b37332aaeb4aadbaa9b38771ac3, type: 2}
+  Yellow: {fileID: 1093124477891866, guid: c31e0616603b283489dbf844787c0438, type: 2}
+  Blue: {fileID: 1309344262010464, guid: fca3cb1342680a04d8029e138d4b0fbb, type: 2}
   GoldVector: {x: 0, y: 0, z: 0}
 --- !u!212 &212953559041544104
 SpriteRenderer:

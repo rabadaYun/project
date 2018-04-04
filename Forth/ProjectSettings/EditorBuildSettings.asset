@@ -9,5 +9,14 @@ EditorBuildSettings:
     path: Assets/Scene/StartUI.unity
     guid: f9cb6b5d71cd7564799f7b118a7552d0
   - enabled: 1
-    path: Assets/Scene/Play.unity
-    guid: 70e469c6775cb8a42803d3f43e983cd2
+    path: Assets/Scene/SelectUI.unity
+    guid: 3e0dac752cea8f04a9fdc2647cc9d5ee
+  - enabled: 1
+    path: Assets/Scene/Play_green.unity
+    guid: 0a57772f2c6c5ca4eaaa11bb2f1c7ba6
+  - enabled: 1
+    path: Assets/Scene/Play_yellow.unity
+    guid: 7a24432403860244084d5d02271c1c56
+  - enabled: 1
+    path: Assets/Scene/Play_blue.unity
+    guid: 65c0dc8e267181e428d6daae4e60e18e

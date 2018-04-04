@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GoldMove : MonoBehaviour
 {
-    public GameObject Green = null;
+    public GameObject Green;
+    public GameObject Yellow;
+    public GameObject Blue;
+
     public Vector3 GoldVector;
 
 	void Update ()
@@ -28,7 +31,7 @@ public class GoldMove : MonoBehaviour
     public void MoveMagnet()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        GoldVector = new Vector3(mousePos.x, Manager.Instance.GreenLocationY, 0);
+        GoldVector = new Vector3(mousePos.x, Manager.Instance.PlayerLocationY, 0);
         Vector3 GoldPos = Vector3.MoveTowards(this.gameObject.transform.position, GoldVector, Time.deltaTime * 10.0f);
         transform.position = GoldPos;
     }

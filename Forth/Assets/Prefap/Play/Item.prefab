@@ -56,5 +56,5 @@ MonoBehaviour:
   Magnet: {fileID: 1018917729033778, guid: ee3606d5b39f88243a43e867cc4c3539, type: 2}
   Power: {fileID: 1101374800545366, guid: 3e1735ff1a1313e478eed796b499c455, type: 2}
   Boom: {fileID: 1593872156449328, guid: e269c30879586d548be02e241d92e254, type: 2}
-  bulletLauncher: {fileID: 114759436207790364, guid: 0b5b8b37332aaeb4aadbaa9b38771ac3,
+  bulletLauncher: {fileID: 114789925354775998, guid: ae666c9c9358d894890f484cdd6b1f19,
     type: 2}

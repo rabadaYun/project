@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Green : MonoBehaviour {
+public class PlayerMove: MonoBehaviour {
 
     float timer;
     float BoostTime;
@@ -17,35 +17,35 @@ public class Green : MonoBehaviour {
                 timer += Time.deltaTime;
                 if (timer < BoostTime)
                 {
-                    Manager.Instance.GreenLocationY += 0.05f;
-                    if (Manager.Instance.GreenLocationY >= 3.0f)
+                    Manager.Instance.PlayerLocationY += 0.05f;
+                    if (Manager.Instance.PlayerLocationY >= 3.0f)
                     {
-                        Manager.Instance.GreenLocationY = 3.0f;
+                        Manager.Instance.PlayerLocationY = 3.0f;
                     }
                 }
                 else
                 {
-                    Manager.Instance.GreenLocationY -= 0.05f;
-                    if (Manager.Instance.GreenLocationY < -3.0)
+                    Manager.Instance.PlayerLocationY -= 0.05f;
+                    if (Manager.Instance.PlayerLocationY < -3.0)
                     {
-                        Manager.Instance.GreenLocationY = -3.0f;
+                        Manager.Instance.PlayerLocationY = -3.0f;
                     }
                 }
             }
             else
             {
                 timer = 0.0f;
-                if (Manager.Instance.GreenLocationY > -3.0)
+                if (Manager.Instance.PlayerLocationY > -3.0)
                 {
-                    Manager.Instance.GreenLocationY -= 0.05f;
+                    Manager.Instance.PlayerLocationY -= 0.05f;
                 }
-                else if (Manager.Instance.GreenLocationY < -3.0)
+                else if (Manager.Instance.PlayerLocationY < -3.0)
                 {
-                    Manager.Instance.GreenLocationY += 0.05f;
+                    Manager.Instance.PlayerLocationY += 0.05f;
                 }
                 else
                 {
-                    Manager.Instance.GreenLocationY = -3.0f;
+                    Manager.Instance.PlayerLocationY = -3.0f;
                 }
                 MoveGreen();
             }   
@@ -57,15 +57,15 @@ public class Green : MonoBehaviour {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.x > Manager.Instance.RightMapSize)
         {
-            transform.position = new Vector3(Manager.Instance.RightMapSize, Manager.Instance.GreenLocationY, 0);
+            transform.position = new Vector3(Manager.Instance.RightMapSize, Manager.Instance.PlayerLocationY, 0);
         }
         else if (mousePos.x < Manager.Instance.LeftMapSize)
         {
-            transform.position = new Vector3(Manager.Instance.LeftMapSize, Manager.Instance.GreenLocationY, 0);
+            transform.position = new Vector3(Manager.Instance.LeftMapSize, Manager.Instance.PlayerLocationY, 0);
         }
         else
         {
-            transform.position = new Vector3(mousePos.x, Manager.Instance.GreenLocationY, 0);
+            transform.position = new Vector3(mousePos.x, Manager.Instance.PlayerLocationY, 0);
         }
     }
 

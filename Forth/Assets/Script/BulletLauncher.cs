@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletLauncher : MonoBehaviour {
 
     public GameObject bullet;
-    public GameObject boom;
+    public GameObject boom_bullet;
 
 	void Start () {
         StartCoroutine(FireBullet());
@@ -26,6 +26,6 @@ public class BulletLauncher : MonoBehaviour {
 
     public void FireBoom()
     {
-        Instantiate(boom, transform.position, Quaternion.identity);
+        Instantiate(boom_bullet, transform.position, Quaternion.identity);
     }
 }

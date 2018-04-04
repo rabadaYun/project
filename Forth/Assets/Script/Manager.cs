@@ -6,13 +6,14 @@ public class Manager : MonoBehaviour
 {
     private static Manager _instance = null;
     public static Manager Instance { get { return _instance; } }
+    
 
     //게임 시작 판정
     private bool _gPlay = false;
     public bool GPlay { set { _gPlay = value; } get { return _gPlay; } }
     //캐릭터 Y 위치
-    private float _greenLocationY = -3.0f;
-    public float GreenLocationY { set { _greenLocationY = value; } get { return _greenLocationY; } }
+    private float _playerLocationY = -3.0f;
+    public float PlayerLocationY { set { _playerLocationY = value; } get { return _playerLocationY; } }
     //맵 왼쪽 사이즈
     private float _leftMapSize = -2.55f;
     public float LeftMapSize { get { return _leftMapSize; } }
@@ -85,7 +86,7 @@ public class Manager : MonoBehaviour
     //스테이지 체크
     private bool _stageCheck = false;
     public bool StageCheck { set { _stageCheck = value; } get { return _stageCheck; } }
-
+    
     public void UIReset()
     {
         _goldCount = 0;
@@ -101,6 +102,7 @@ public class Manager : MonoBehaviour
     
     void Start () {
         _gPlay = true;
+
         UIReset();
     }
 	
