@@ -1,22 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletLauncher : MonoBehaviour {
 
-    public GameObject bullet;
+    public GameObject bullet_1;
+    public GameObject bullet_2;
+    public GameObject bullet_3;
     public GameObject boom_bullet;
+    
 
-	void Start () {
-        StartCoroutine(FireBullet());
-	}
+    void Start ()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            StartCoroutine(FireBullet_1());
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            StartCoroutine(FireBullet_2());
+        }
+    }
 	
-    IEnumerator FireBullet()
+    IEnumerator FireBullet_1()
     {
         while (true)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Instantiate(bullet_1, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(1 / Manager.Instance.Fps);
+            if (!Manager.Instance.GPlay)
+            {
+                break;
+            }
+        }
+    }
+
+    IEnumerator FireBullet_2()
+    {
+        while (true)
+        {
+            Instantiate(bullet_1, transform.position, Quaternion.AngleAxis(-20, Vector3.forward));
+            Instantiate(bullet_1, transform.position, Quaternion.AngleAxis(20, Vector3.forward));
+            yield return new WaitForSeconds(2 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {
                 break;
