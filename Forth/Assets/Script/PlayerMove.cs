@@ -9,46 +9,49 @@ public class PlayerMove: MonoBehaviour {
 
 	public void Update ()
     {
-        if (Manager.Instance.GPlay)
+        if (!Manager.Instance.IsPause)
         {
-            if (Manager.Instance.UseBoost)
+            if (Manager.Instance.GPlay)
             {
-                MoveGreen();
-                timer += Time.deltaTime;
-                if (timer < BoostTime)
+                if (Manager.Instance.UseBoost)
                 {
-                    Manager.Instance.PlayerLocationY += 0.05f;
-                    if (Manager.Instance.PlayerLocationY >= 3.0f)
+                    MoveGreen();
+                    timer += Time.deltaTime;
+                    if (timer < BoostTime)
                     {
-                        Manager.Instance.PlayerLocationY = 3.0f;
+                        Manager.Instance.PlayerLocationY += 0.05f;
+                        if (Manager.Instance.PlayerLocationY >= 3.0f)
+                        {
+                            Manager.Instance.PlayerLocationY = 3.0f;
+                        }
+                    }
+                    else
+                    {
+                        Manager.Instance.PlayerLocationY -= 0.05f;
+                        if (Manager.Instance.PlayerLocationY < -3.0)
+                        {
+                            Manager.Instance.PlayerLocationY = -3.0f;
+                        }
                     }
                 }
                 else
                 {
-                    Manager.Instance.PlayerLocationY -= 0.05f;
-                    if (Manager.Instance.PlayerLocationY < -3.0)
+                    timer = 0.0f;
+                    if (Manager.Instance.PlayerLocationY > -3.0)
+                    {
+                        Manager.Instance.PlayerLocationY -= 0.05f;
+                    }
+                    else if (Manager.Instance.PlayerLocationY < -3.0)
+                    {
+                        Manager.Instance.PlayerLocationY += 0.05f;
+                    }
+                    else
                     {
                         Manager.Instance.PlayerLocationY = -3.0f;
                     }
+                    MoveGreen();
                 }
             }
-            else
-            {
-                timer = 0.0f;
-                if (Manager.Instance.PlayerLocationY > -3.0)
-                {
-                    Manager.Instance.PlayerLocationY -= 0.05f;
-                }
-                else if (Manager.Instance.PlayerLocationY < -3.0)
-                {
-                    Manager.Instance.PlayerLocationY += 0.05f;
-                }
-                else
-                {
-                    Manager.Instance.PlayerLocationY = -3.0f;
-                }
-                MoveGreen();
-            }   
         }
     }
 

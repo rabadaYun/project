@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc8bcdc8aa24404b80fbfa123cc7002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpgradePop: {fileID: 1303365033847356, guid: 13ff6fe5f7e1bdf48af4d5e64a902713, type: 2}
 --- !u!124 &124456424344777104
 Behaviour:
   m_ObjectHideFlags: 1

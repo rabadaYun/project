@@ -23,7 +23,10 @@ public class MapMove : MonoBehaviour
     {
         if (Manager.Instance.GPlay)
         {
-            MoveRoadObject();
+            if (!Manager.Instance.IsPause)
+            {
+                MoveRoadObject();
+            }
         }
     }
 }

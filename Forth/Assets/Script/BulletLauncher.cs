@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BulletLauncher : MonoBehaviour {
 
-    public GameObject bullet_1;
-    public GameObject bullet_2;
-    public GameObject bullet_3;
+    public GameObject bullet;
     public GameObject boom_bullet;
     
 
@@ -21,13 +19,17 @@ public class BulletLauncher : MonoBehaviour {
         {
             StartCoroutine(FireBullet_2());
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            StartCoroutine(FireBullet_3());
+        }
     }
 	
     IEnumerator FireBullet_1()
     {
         while (true)
         {
-            Instantiate(bullet_1, transform.position, Quaternion.identity);
+            Instantiate(bullet, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(1 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {
@@ -40,9 +42,24 @@ public class BulletLauncher : MonoBehaviour {
     {
         while (true)
         {
-            Instantiate(bullet_1, transform.position, Quaternion.AngleAxis(-20, Vector3.forward));
-            Instantiate(bullet_1, transform.position, Quaternion.AngleAxis(20, Vector3.forward));
+            Instantiate(bullet, transform.position, Quaternion.AngleAxis(-20, Vector3.forward));
+            Instantiate(bullet, transform.position, Quaternion.AngleAxis(20, Vector3.forward));
             yield return new WaitForSeconds(2 / Manager.Instance.Fps);
+            if (!Manager.Instance.GPlay)
+            {
+                break;
+            }
+        }
+    }
+
+    IEnumerator FireBullet_3()
+    {
+        while (true)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+            Instantiate(bullet, transform.position, Quaternion.AngleAxis(-30, Vector3.forward));
+            Instantiate(bullet, transform.position, Quaternion.AngleAxis(30, Vector3.forward));
+            yield return new WaitForSeconds(3 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {
                 break;

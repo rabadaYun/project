@@ -12,12 +12,15 @@ public class GoldMove : MonoBehaviour
 
 	void Update ()
     {
-        MoveNormal();
-        if (Manager.Instance.UseMagnet)
+        if (!Manager.Instance.IsPause)
         {
-            MoveMagnet();
+            MoveNormal();
+            if (Manager.Instance.UseMagnet)
+            {
+                MoveMagnet();
+            }
+            gameObject.transform.Rotate(0, 5, 0);
         }
-        gameObject.transform.Rotate(0, 5, 0);
 	}
 
     public void MoveNormal()

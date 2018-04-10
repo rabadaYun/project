@@ -6,12 +6,29 @@ using UnityEngine.SceneManagement;
 public class ButtonClick : MonoBehaviour
 {
     public static int characterNumber = 1;
+    public GameObject UpgradePop;
 
     public void UpgradeButton()
     {
-        SceneManager.LoadScene("Scene/SelectUI");
-        Debug.Log("Upgrade!!");
+        if (Manager.Instance.IsPause)
+        {
+            Time.timeScale = 1;
+            Manager.Instance.IsPause = false;
+            Debug.Log("Restart");
+
+        }
+        else
+        {
+            Time.timeScale = 0;
+            Manager.Instance.IsPause = true;
+            Debug.Log("Pause");
+        }
       //  SceneManager.LoadScene("Scene/Upgrade");
+    }
+
+    public void UpgradeBullet()
+    {
+        Debug.Log("BulletUpgrade!");
     }
 
     public void SelectCharacter(int _characterNumber)
@@ -49,5 +66,47 @@ public class ButtonClick : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene("Scene/SelectUI");
+    }
+
+    public void UpgradePopUp()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            if (!Manager.Instance.IsPause)
+            {
+                UpgradePop.SetActive(false);
+            }
+            else
+            {
+                UpgradePop.SetActive(true);
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (!Manager.Instance.IsPause)
+            {
+                UpgradePop.SetActive(false);
+            }
+            else
+            {
+                UpgradePop.SetActive(true);
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            if (!Manager.Instance.IsPause)
+            {
+                UpgradePop.SetActive(false);
+            }
+            else
+            {
+                UpgradePop.SetActive(true);
+            }
+        }
+    }
+
+    public void Update()
+    {
+        UpgradePopUp();
     }
 }

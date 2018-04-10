@@ -700,6 +700,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114044939247674998, guid: 7d9808b98b06e3d4d96be6da479e6e4c,
+        type: 2}
+      propertyPath: UpgradePop
+      value: 
+      objectReference: {fileID: 1303365033847356, guid: 13ff6fe5f7e1bdf48af4d5e64a902713,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d9808b98b06e3d4d96be6da479e6e4c, type: 2}
   m_IsPrefabParent: 0
