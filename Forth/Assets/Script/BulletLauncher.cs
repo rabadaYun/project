@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class BulletLauncher : MonoBehaviour {
 
     public GameObject bullet;
+    public GameObject bullet_1;
     public GameObject boom_bullet;
     
-
     void Start ()
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -29,7 +29,14 @@ public class BulletLauncher : MonoBehaviour {
     {
         while (true)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            if (Manager.Instance.PlayerLevel % 2 == 1)
+            {
+                Instantiate(bullet, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(bullet_1, transform.position, Quaternion.identity);
+            }
             yield return new WaitForSeconds(1 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {

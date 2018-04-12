@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonClick : MonoBehaviour
@@ -8,27 +9,63 @@ public class ButtonClick : MonoBehaviour
     public static int characterNumber = 1;
     public GameObject UpgradePop;
 
+    public GameObject oldBullet;
+    public GameObject newBullet;
+
     public void UpgradeButton()
     {
-        if (Manager.Instance.IsPause)
-        {
-            Time.timeScale = 1;
-            Manager.Instance.IsPause = false;
-            Debug.Log("Restart");
-
-        }
-        else
+        if (!Manager.Instance.IsPause)
         {
             Time.timeScale = 0;
             Manager.Instance.IsPause = true;
-            Debug.Log("Pause");
+            Text UpgradeText = GameObject.Find("UpgradeText").GetComponent<Text>();
+            UpgradeText.text = "Return";
         }
-      //  SceneManager.LoadScene("Scene/Upgrade");
+        else
+        {
+            Time.timeScale = 1;
+            Manager.Instance.IsPause = false;
+            Text UpgradeText = GameObject.Find("UpgradeText").GetComponent<Text>();
+            UpgradeText.text = "Upgrade";
+        }
+    }
+
+    public void CheckPlayerLevel()
+    {
+        if (Manager.Instance.PlayerLevel == 1)
+        {
+            oldBullet.GetComponent<Image>().sprite = Resources.Load("Make/hm1", typeof(Sprite)) as Sprite;
+            newBullet.GetComponent<Image>().sprite = Resources.Load("Arrow_front", typeof(Sprite)) as Sprite;
+        }
+        else if (Manager.Instance.PlayerLevel == 2)
+        {
+            newBullet.GetComponent<Image>().sprite = Resources.Load("Make/hm1", typeof(Sprite)) as Sprite;
+            oldBullet.GetComponent<Image>().sprite = Resources.Load("Arrow_front", typeof(Sprite)) as Sprite;
+        }
+        else
+        {
+            newBullet.GetComponent<Image>().sprite = Resources.Load("Make/hm1", typeof(Sprite)) as Sprite;
+            oldBullet.GetComponent<Image>().sprite = Resources.Load("Make/hm1", typeof(Sprite)) as Sprite;
+        }
     }
 
     public void UpgradeBullet()
     {
+        CheckPlayerLevel();
+        Debug.Log(Manager.Instance.PlayerLevel);
         Debug.Log("BulletUpgrade!");
+        if (Manager.Instance.GoldCount >= 10)
+        {
+            Manager.Instance.GoldCount -= 10;
+            Manager.Instance.BulletPower += 1;
+            Manager.Instance.Fps += 0.05f;
+            Manager.Instance.VerticalSpeed += 0.01f;
+            Manager.Instance.PlayerLevel += 1;            
+        }
+        else
+        {
+            Debug.Log("No Gold!!");
+        }
     }
 
     public void SelectCharacter(int _characterNumber)

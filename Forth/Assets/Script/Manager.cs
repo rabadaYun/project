@@ -17,6 +17,9 @@ public class Manager : MonoBehaviour
     //캐릭터 Y 위치
     private float _playerLocationY = -3.0f;
     public float PlayerLocationY { set { _playerLocationY = value; } get { return _playerLocationY; } }
+    //플레이어 레벨
+    private int _playerLevel = 1;
+    public int PlayerLevel { set { _playerLevel = value; } get { return _playerLevel; } }
     //맵 왼쪽 사이즈
     private float _leftMapSize = -2.55f;
     public float LeftMapSize { get { return _leftMapSize; } }

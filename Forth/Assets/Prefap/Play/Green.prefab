@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1236732089927296, guid: a0f912f9ce144e548a85c94d15c7253e, type: 2}
+  bullet_1: {fileID: 1837849945903854, guid: 44bc6bf72548ed24a8c953b63db2a333, type: 2}
   boom_bullet: {fileID: 1267456978218648, guid: 5f3d5ac9136b2c84a867ef5c2b1a63cc,
     type: 2}
 --- !u!114 &114921029451234290
