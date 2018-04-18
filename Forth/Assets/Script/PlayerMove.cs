@@ -15,7 +15,7 @@ public class PlayerMove: MonoBehaviour {
             {
                 if (Manager.Instance.UseBoost)
                 {
-                    MoveGreen();
+                    MovePlayer();
                     timer += Time.deltaTime;
                     if (timer < BoostTime)
                     {
@@ -49,13 +49,13 @@ public class PlayerMove: MonoBehaviour {
                     {
                         Manager.Instance.PlayerLocationY = -3.0f;
                     }
-                    MoveGreen();
+                    MovePlayer();
                 }
             }
         }
     }
 
-    public void MoveGreen()
+    public void MovePlayer()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.x > Manager.Instance.RightMapSize)

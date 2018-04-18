@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BulletLauncher : MonoBehaviour {
 
-    public GameObject bullet;
-    public GameObject bullet_1;
+    public GameObject bullet_hm;
+    public GameObject bullet_book;
     public GameObject boom_bullet;
     
     void Start ()
@@ -31,11 +31,11 @@ public class BulletLauncher : MonoBehaviour {
         {
             if (Manager.Instance.PlayerLevel % 2 == 1)
             {
-                Instantiate(bullet, transform.position, Quaternion.identity);
+                Instantiate(bullet_hm, transform.position, Quaternion.identity);
             }
             else
             {
-                Instantiate(bullet_1, transform.position, Quaternion.identity);
+                Instantiate(bullet_hm, transform.position, Quaternion.identity);
             }
             yield return new WaitForSeconds(1 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
@@ -49,8 +49,8 @@ public class BulletLauncher : MonoBehaviour {
     {
         while (true)
         {
-            Instantiate(bullet, transform.position, Quaternion.AngleAxis(-20, Vector3.forward));
-            Instantiate(bullet, transform.position, Quaternion.AngleAxis(20, Vector3.forward));
+            Instantiate(bullet_book, transform.position, Quaternion.AngleAxis(-20, Vector3.forward));
+            Instantiate(bullet_book, transform.position, Quaternion.AngleAxis(20, Vector3.forward));
             yield return new WaitForSeconds(2 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {
@@ -63,9 +63,9 @@ public class BulletLauncher : MonoBehaviour {
     {
         while (true)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            Instantiate(bullet, transform.position, Quaternion.AngleAxis(-30, Vector3.forward));
-            Instantiate(bullet, transform.position, Quaternion.AngleAxis(30, Vector3.forward));
+            Instantiate(bullet_hm, transform.position, Quaternion.identity);
+            Instantiate(bullet_hm, transform.position, Quaternion.AngleAxis(-30, Vector3.forward));
+            Instantiate(bullet_hm, transform.position, Quaternion.AngleAxis(30, Vector3.forward));
             yield return new WaitForSeconds(3 / Manager.Instance.Fps);
             if (!Manager.Instance.GPlay)
             {

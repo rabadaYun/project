@@ -445,6 +445,10 @@ Prefab:
       propertyPath: m_Colors.m_NormalColor.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1120878550100988, guid: 13ff6fe5f7e1bdf48af4d5e64a902713, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13ff6fe5f7e1bdf48af4d5e64a902713, type: 2}
   m_IsPrefabParent: 0
@@ -1179,6 +1183,10 @@ Prefab:
         type: 2}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203744866457264, guid: 6effd66aea9c0ce439ef3b5359c143d2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6effd66aea9c0ce439ef3b5359c143d2, type: 2}

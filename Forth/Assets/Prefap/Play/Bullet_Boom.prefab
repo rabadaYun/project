@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212711128992794012}
   - component: {fileID: 58290469908912122}
   - component: {fileID: 114529265526976656}
+  - component: {fileID: 114416341720933354}
   m_Layer: 0
   m_Name: Bullet_Boom
   m_TagString: Bullet_Boom
@@ -57,6 +58,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 1.005
+--- !u!114 &114416341720933354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267456978218648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6af4347d841d840917897e6f990806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyEHealth: 0
+  enemyNHealth: 0
+  bulletHealth: 0
+  myHealth: 0
+  itemLauncher: {fileID: 114786874001730402, guid: 389080f39f7fc2f4d8a2f434e5a5d119,
+    type: 2}
+  inGameUI: {fileID: 114316717403491700, guid: 2527b5f32e116a4499101e85edd494fd, type: 2}
 --- !u!114 &114529265526976656
 MonoBehaviour:
   m_ObjectHideFlags: 1
