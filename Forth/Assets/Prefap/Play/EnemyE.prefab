@@ -108,8 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6af4347d841d840917897e6f990806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyEHealth: 5
-  enemyNHealth: 3
+  enemyEHealth: 50
+  enemySEHealth: 100
+  enemyNHealth: 30
   bulletHealth: 1
   myHealth: 3
   itemLauncher: {fileID: 114786874001730402, guid: 389080f39f7fc2f4d8a2f434e5a5d119,

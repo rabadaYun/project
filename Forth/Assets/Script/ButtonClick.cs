@@ -56,8 +56,8 @@ public class ButtonClick : MonoBehaviour
         Debug.Log("BulletUpgrade!");
         if (Manager.Instance.GoldCount >= 10)
         {
-            Manager.Instance.GoldCount -= 10;
-            Manager.Instance.BulletPower += 1;
+            Manager.Instance.GoldCount -= (10 + Manager.Instance.PlayerLevel);
+            Manager.Instance.BulletPower += 5;
             Manager.Instance.Fps += 0.05f;
             Manager.Instance.VerticalSpeed += 0.01f;
             Manager.Instance.PlayerLevel += 1;            

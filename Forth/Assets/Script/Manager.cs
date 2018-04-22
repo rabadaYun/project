@@ -42,7 +42,7 @@ public class Manager : MonoBehaviour
     private float _verticalSpeed = 3.0f;
     public float VerticalSpeed { set { _verticalSpeed = value; } get { return _verticalSpeed; } }
     //총알 한발당 파워
-    private int _bulletPower = 1;
+    private int _bulletPower = 10;
     public int BulletPower { set { _bulletPower = value; } get { return _bulletPower; } }
     //총알 체력
     private int _bulletHealth = 1;
@@ -54,11 +54,14 @@ public class Manager : MonoBehaviour
     private float _interval = 4.0f;
     public float Interval { set { _interval = value; } get { return _interval; } }
     //일반 적 체력
-    private int _enemyNHealth = 3;
+    private int _enemyNHealth = 30;
     public int EnemyNHealth { set { _enemyNHealth = value;  } get { return _enemyNHealth; } }
     //엘리트 적 체력
-    private int _enemyEHealth = 5;
+    private int _enemyEHealth = 50;
     public int EnemyEHealth { set { _enemyEHealth = value; } get { return _enemyEHealth; } }
+    //슈퍼 엘리트 적 체력
+    private int _enemySEHealth = 100;
+    public int EnemySEHealth { set { _enemySEHealth = value; } get { return _enemySEHealth; } }
     //골드 최대 생성량
     private int _maxGoldMake = 3;
     public int MaxGoldMake { set { _maxGoldMake = value; } get { return _maxGoldMake; } }

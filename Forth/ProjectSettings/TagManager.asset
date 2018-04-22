@@ -15,6 +15,7 @@ TagManager:
   - Power
   - Gold
   - Bullet_Boom
+  - enemySE
   layers:
   - Default
   - TransparentFX
